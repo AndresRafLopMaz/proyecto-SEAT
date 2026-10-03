@@ -1,0 +1,42 @@
+{
+  "task_id": "T2",
+  "titulo": "Gestion de inventario en memoria",
+  "fuente": "tasks/T2/prompt.md",
+  "requirements": [
+    {
+      "id": "T2-R1",
+      "descripcion": "Debe existir la funcion procesar_inventario(inventario, operaciones). 'inventario' debe ser dict y 'operaciones' debe ser list; un tipo incorrecto en cualquiera de los dos debe producir TypeError. Las cantidades iniciales validas son enteros >= 0 y los valores booleanos no se consideran enteros validos.",
+      "criterio_verificable": "La funcion existe y es invocable con (dict, list). Si 'inventario' o 'operaciones' no son del tipo esperado (str, int, list/dict segun corresponda, None), se lanza TypeError.",
+      "evidencia_esperada": "T2-C10 (subcasos A y B: TypeError por tipo principal incorrecto); invocacion valida en T2-C01 a T2-C09.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T2-R2",
+      "descripcion": "Agregar: requiere codigo y cantidad entera positiva no booleana; si el producto existe incrementa sus existencias y si no existe lo crea. Retirar: requiere producto existente, cantidad entera positiva no booleana y stock suficiente; si el saldo queda en 0 el producto permanece en el inventario con valor 0.",
+      "criterio_verificable": "Tras una operacion agregar valida la cantidad aumenta o se crea el producto; tras una retirar valida la cantidad disminuye y el producto se mantiene con 0 al agotarse; una retirada sin stock suficiente se rechaza sin cambiar el inventario.",
+      "evidencia_esperada": "T2-C01, T2-C02, T2-C03, T2-C04 y T2-C05.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T2-R3",
+      "descripcion": "Transferir requiere origen y destino existentes, origen distinto de destino, cantidad entera positiva no booleana y stock suficiente en el origen. Si es valida, disminuye el origen y aumenta el destino. Si cualquier condicion falla, la operacion es atomica: no debe existir ninguna modificacion parcial.",
+      "criterio_verificable": "Una transferencia valida disminuye el origen y aumenta el destino con aplicadas=1; cada transferencia invalida (stock insuficiente, origen igual a destino, origen inexistente o destino inexistente) deja el inventario exactamente igual al estado previo (comparado con deepcopy) y aumenta rechazadas.",
+      "evidencia_esperada": "T2-C07 (transferencia valida) y T2-C08 (transferencia invalida y atomicidad).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con comparacion de estado previo mediante copy.deepcopy"
+    },
+    {
+      "id": "T2-R4",
+      "descripcion": "Eliminar requiere un codigo existente y elimina completamente el producto. Cualquier operacion invalida no modifica el estado, incrementa rechazadas y no detiene el procesamiento posterior. Las operaciones validas incrementan aplicadas. La funcion devuelve exactamente un dict con las claves 'inventario', 'aplicadas' y 'rechazadas'.",
+      "criterio_verificable": "Conjunto exacto de claves de nivel superior; la eliminacion de un producto existente lo ausenta del resultado; una secuencia con operaciones invalidas (tipos de cantidad invalidos, accion desconocida, operacion malformada) seguida de una operacion valida rechaza las invalidas, continua el procesamiento y aplica la valida con conteos correctos.",
+      "evidencia_esperada": "T2-C06 (eliminacion valida e invalida) y T2-C09 (operaciones invalidas y continuidad).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con verificacion de estructura exacta"
+    },
+    {
+      "id": "T2-R5",
+      "descripcion": "La funcion no debe modificar el diccionario 'inventario' recibido, ni la lista 'operaciones', ni los diccionarios contenidos en operaciones. La salida debe construirse sin alterar las entradas originales.",
+      "criterio_verificable": "Tras una ejecucion valida, 'inventario' y 'operaciones' son iguales a copias profundas tomadas antes de la llamada, incluidos los diccionarios internos de las operaciones.",
+      "evidencia_esperada": "T2-C10 (subcaso C: inmutable con copy.deepcopy).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con copy.deepcopy"
+    }
+  ]
+}

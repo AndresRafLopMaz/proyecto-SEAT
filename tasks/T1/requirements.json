@@ -1,0 +1,42 @@
+{
+  "task_id": "T1",
+  "titulo": "Procesamiento y validacion de mediciones",
+  "fuente": "tasks/T1/prompt.md",
+  "requirements": [
+    {
+      "id": "T1-R1",
+      "descripcion": "Debe existir una funcion reutilizable analizar_mediciones(mediciones) invocable con una lista de mediciones. Si el argumento principal no es una lista, debe producir TypeError.",
+      "criterio_verificable": "La funcion existe y es invocable; al pasar un argumento que no sea lista (str, dict, int, None, tuple) se lanza TypeError.",
+      "evidencia_esperada": "T1-C10 (TypeError en tipos principales incorrectos); importacion y ejecucion de la funcion en T1-C01 a T1-C09.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T1-R2",
+      "descripcion": "Un registro es valido solo si: es dict; 'sensor' es str no vacio tras strip(); 'valor' es int o float (bool excluido) con 0 <= valor <= 100; el nombre del sensor se normaliza con strip().",
+      "criterio_verificable": "Se aceptan los limites 0 y 100; se rechazan bool, str numerico y None como valor; se rechaza sensor no str y sensor vacio o solo espacios; las claves equivalentes 'S1', ' S1 ' y 'S1  ' se agrupan bajo la clave normalizada 'S1'.",
+      "evidencia_esperada": "T1-C04 (limites 0 y 100); T1-C05 (normalizacion de sensor); T1-C06 (campos faltantes); T1-C07 (fuera de rango); T1-C08 (tipos invalidos).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T1-R3",
+      "descripcion": "Los registros invalidos no deben detener el procesamiento, no deben participar en los calculos y deben contabilizarse en 'invalidas'.",
+      "criterio_verificable": "Con registros invalidos mezclados con validos, la funcion completa su ejecucion, los invalidos no alteran promedio_general, minimo_general, maximo_general ni por_sensor, y 'invalidas' refleja exactamente su cantidad.",
+      "evidencia_esperada": "T1-C06, T1-C07 y T1-C08 (invalidos contabilizados sin detener el procesamiento).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T1-R4",
+      "descripcion": "Debe devolver exactamente el diccionario con 'validas', 'invalidas', 'promedio_general', 'minimo_general', 'maximo_general' y 'por_sensor'; cada sensor con 'cantidad', 'promedio', 'minimo' y 'maximo'. Si no hay mediciones validas, los generales y los estadisticos por sensor son None y 'por_sensor' es {}. Los promedios no se redondean artificialmente.",
+      "criterio_verificable": "Conjuntos de claves exactos en el nivel superior y por sensor; conteos, promedios (comparados con tolerancia), minimos y maximos correctos; el caso vacio devuelve los None y {} definidos; los promedios coinciden con el valor real sin redondeo.",
+      "evidencia_esperada": "T1-C01 (un sensor), T1-C02 (varios sensores) y T1-C03 (lista vacia).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con comparacion exacta de estructura y pytest.approx en promedios"
+    },
+    {
+      "id": "T1-R5",
+      "descripcion": "La funcion no debe modificar la lista recibida ni los diccionarios contenidos en ella.",
+      "criterio_verificable": "Tras ejecutar la funcion, la entrada es igual a una copia profunda tomada antes de la llamada.",
+      "evidencia_esperada": "T1-C09 (comparacion con copia profunda antes/despues).",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con copy.deepcopy"
+    }
+  ]
+}

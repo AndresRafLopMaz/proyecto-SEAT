@@ -1,0 +1,29 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+.vscode/
+.idea/
+
+# Entorno local
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Pytest
+.pytest_cache/
+
+# Variables y secretos locales
+.env
+.env.*
+
+# IDE / sistema
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

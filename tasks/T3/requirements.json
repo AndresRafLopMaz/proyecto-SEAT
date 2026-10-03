@@ -1,0 +1,42 @@
+{
+  "task_id": "T3",
+  "titulo": "Evaluacion de expresiones aritmeticas",
+  "fuente": "tasks/T3/prompt.md",
+  "requirements": [
+    {
+      "id": "T3-R1",
+      "descripcion": "Debe existir la funcion evaluar_expresion(expresion). El argumento debe ser un string; si no lo es, debe producir TypeError.",
+      "criterio_verificable": "La funcion existe y es invocable; al pasar un argumento que no sea string (int, None, list, dict) se lanza TypeError.",
+      "evidencia_esperada": "T3-C10 (subcaso B: TypeError con 123 y None); invocacion valida en T3-C01 a T3-C09.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) sobre la muestra cargada"
+    },
+    {
+      "id": "T3-R2",
+      "descripcion": "Debe evaluar correctamente expresiones compuestas por enteros, decimales, suma, resta, multiplicacion, division, parentesis y espacios, respetando la precedencia de operadores, la asociacion y la agrupacion con parentesis.",
+      "criterio_verificable": "Resultados correctos para '2 + 3 * 4' (14), '(2 + 3) * 4' (20), '10 / 4' (2.5) y '2.5 + 1.25' (3.75), comparando decimales con pytest.approx.",
+      "evidencia_esperada": "T3-C01, T3-C02 y T3-C03.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con comparacion numerica (pytest.approx en decimales)"
+    },
+    {
+      "id": "T3-R3",
+      "descripcion": "Debe aceptar operadores unarios +numero y -numero, incluida su combinacion con parentesis, operaciones aritmeticas y espacios.",
+      "criterio_verificable": "Resultados correctos para '-5 + 2' (-3), un ejemplo con + unario, y '-(3 + 2) * 4' (-20), tolerando espacios adicionales.",
+      "evidencia_esperada": "T3-C04 y T3-C05.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest)"
+    },
+    {
+      "id": "T3-R4",
+      "descripcion": "Cualquier construccion fuera del subconjunto permitido debe producir ValueError: variables, llamadas, atributos, colecciones (listas, tuplas, diccionarios, conjuntos), comparaciones, operadores logicos, potencia, division entera, modulo, asignaciones, imports, comprensiones, lambda y demas construcciones no permitidas.",
+      "criterio_verificable": "Todas las expresiones prohibidas de prueba lanzan ValueError y no se ejecutan; se cubren variables, llamadas, atributos, colecciones, lambda, comprensiones, potencia, division entera, modulo, comparacion, logica y asignacion/import.",
+      "evidencia_esperada": "T3-C06, T3-C07 y T3-C08.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) con pytest.raises(ValueError) sobre expresiones prohibidas inocuas"
+    },
+    {
+      "id": "T3-R5",
+      "descripcion": "Manejo de errores y restricciones de ejecucion: sintaxis invalida produce ValueError; division entre cero produce ZeroDivisionError; la funcion es determinista para una misma expresion. No debe requerir entrada interactiva, archivos, red, comandos externos ni servicios externos, y solo depende de Python 3.12.x y la biblioteca estandar.",
+      "criterio_verificable": "T3-R5 se cumple (1) unicamente si se satisfacen las tres condiciones: (A) T3-C09 pasa; (B) T3-C10 pasa; (C) la comprobacion estatica de restricciones externas pasa. (A) y (B) son funcionales: sintaxis invalida -> ValueError, '10 / 0' -> ZeroDivisionError, tipo incorrecto -> TypeError y determinismo. (C) es estatica y objetiva sobre el AST/fuente: no debe haber usos inequivocos de entrada interactiva (input, breakpoint), archivos (open, io.open, .open/.read_text/.write_text/.read_bytes/.write_bytes), comandos externos (os.system/os.popen/os.spawn*/os.exec*/os.fork, subprocess.*), red (socket.*, urllib.*, http.*, ftplib.*, smtplib.*, poplib.*, imaplib.*, telnetlib.*, xmlrpc.*, requests.*) ni imports de modulos que no pertenezcan a sys.stdlib_module_names. Si cualquiera de (A), (B) o (C) falla, T3-R5 = 0.",
+      "evidencia_esperada": "Evidencia funcional: T3-C09 y T3-C10. Evidencia estatica: comprobacion de restricciones externas con tasks/T3/restrictions_check.py (AST + sys.stdlib_module_names). El import de modulos de la biblioteca estandar (ast, operator, re, math, tokenize, etc.) y el uso de eval/exec no penalizan R5 por si mismos; su riesgo se mide con Bandit en T3-B.",
+      "tipo_verificacion": "prueba funcional automatizada (pytest) para (A) y (B), mas comprobacion estatica del AST/fuente para (C) mediante tasks/T3/restrictions_check.py"
+    }
+  ]
+}

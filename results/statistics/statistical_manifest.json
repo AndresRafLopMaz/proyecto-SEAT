@@ -1,0 +1,39 @@
+{
+  "phase": "GLOBAL-B (analisis estadistico formal)",
+  "global_results_sha256": "ce2a48f8b513f60f908700f3ace8f593e4e7940562b0d6c0078c5778946f8671",
+  "global_results_sha256_after": "ce2a48f8b513f60f908700f3ace8f593e4e7940562b0d6c0078c5778946f8671",
+  "global_results_unchanged": true,
+  "python_version": "3.12.10",
+  "scipy_version": "1.18.1",
+  "alpha": 0.05,
+  "primary_metric": "ICC",
+  "omnibus_test": "Kruskal-Wallis",
+  "posthoc_test": "Dunn (con correccion por empates)",
+  "multiple_comparison_correction": "Holm-Bonferroni",
+  "omnibus_effect_size": "epsilon_squared",
+  "pairwise_effect_size": "cliffs_delta",
+  "quantile_method": "statistics.quantiles(n=4, method='inclusive')",
+  "total_observations": 90,
+  "task_group_sizes": {
+    "T1": {
+      "chatgpt": 10,
+      "deepseek": 10,
+      "opencode": 10
+    },
+    "T2": {
+      "chatgpt": 10,
+      "deepseek": 10,
+      "opencode": 10
+    },
+    "T3": {
+      "chatgpt": 10,
+      "deepseek": 10,
+      "opencode": 10
+    }
+  },
+  "generated_files": {
+    "descriptive_statistics.csv": "4913cd5a9b765dee6e33628b74ceac7f558f5fc7e4b250aa5f05c47bf80b2626",
+    "kruskal_wallis.csv": "6ecfa52770ffe698fba00d440b144aa9c633c186b549c8a9a018d1475aa191c7",
+    "posthoc_dunn_holm.csv": "878900dc4892cba7dc48420acc823f84a8f15351b88e8cc123747b0b52e5e7f3"
+  }
+}

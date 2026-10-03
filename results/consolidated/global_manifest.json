@@ -1,0 +1,63 @@
+{
+  "experiment": "EVALUACION DE LA CALIDAD DEL CODIGO GENERADO MEDIANTE DISTINTOS MODELOS DE INTELIGENCIA ARTIFICIAL EN TAREAS DE PROGRAMACION",
+  "phase": "GLOBAL-A (congelamiento de datos)",
+  "python_version": "3.12.10",
+  "total_observations": 90,
+  "tasks": {
+    "T1": 30,
+    "T2": 30,
+    "T3": 30
+  },
+  "models": {
+    "chatgpt": 30,
+    "deepseek": 30,
+    "opencode": 30
+  },
+  "groups": {
+    "T1/chatgpt": 10,
+    "T1/deepseek": 10,
+    "T1/opencode": 10,
+    "T2/chatgpt": 10,
+    "T2/deepseek": 10,
+    "T2/opencode": 10,
+    "T3/chatgpt": 10,
+    "T3/deepseek": 10,
+    "T3/opencode": 10
+  },
+  "dimensions": [
+    "R",
+    "F",
+    "C",
+    "M",
+    "S",
+    "ICC"
+  ],
+  "icc_formula": "ICC = 0.20*R + 0.20*F + 0.20*C + 0.20*M + 0.20*S",
+  "source_files": {
+    "T1_results.csv": {
+      "sha256": "3b5de173c236305cc1ded70a3e9b1f9b425c81884e173cc283961a8f4678d533",
+      "rows": 30
+    },
+    "T2_results.csv": {
+      "sha256": "2e35b7e30459ec9deb59ac28b1e15563bde7f8fb19cbbd80a2de1df50a5d9d55",
+      "rows": 30
+    },
+    "T3_results.csv": {
+      "sha256": "4d801cf40d946a87fed033b866795601fea6cbc14fcc4e78dfe22bdc8b83b50b",
+      "rows": 30
+    }
+  },
+  "global_results": {
+    "sha256": "ce2a48f8b513f60f908700f3ace8f593e4e7940562b0d6c0078c5778946f8671",
+    "rows": 90
+  },
+  "source_files_unchanged": true,
+  "icc": {
+    "max_abs_delta": 1.4210854715202004e-14,
+    "inconsistent": 0,
+    "tolerance": 0.05
+  },
+  "integrity_status": "PASS",
+  "integrity_errors": [],
+  "integrity_warnings": []
+}

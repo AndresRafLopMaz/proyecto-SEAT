@@ -1,0 +1,37 @@
+{
+  "experiment": {
+    "language": "Python",
+    "python_version": "3.12.x",
+    "tasks": 3,
+    "repetitions_per_model_task": 10,
+    "expected_samples": 90
+  },
+  "systems": {
+    "chatgpt": {
+      "model": null,
+      "provider": "OpenAI",
+      "version": null
+    },
+    "deepseek": {
+      "model": null,
+      "provider": "DeepSeek",
+      "version": null
+    },
+    "opencode": {
+      "model": null,
+      "provider": null,
+      "client": "OpenCode",
+      "version": null
+    }
+  },
+  "evaluation": {
+    "dimensions": ["R", "F", "C", "M", "S"],
+    "weights": {
+      "R": 0.2,
+      "F": 0.2,
+      "C": 0.2,
+      "M": 0.2,
+      "S": 0.2
+    }
+  }
+}

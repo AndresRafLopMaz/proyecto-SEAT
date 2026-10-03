@@ -1,0 +1,189 @@
+{
+  "sample_id": "T1_opencode_R07",
+  "model": "opencode",
+  "system": "opencode",
+  "task": "T1",
+  "repetition": 7,
+  "syntax_valid": true,
+  "requirements_satisfied": 5,
+  "tests_passed": 10,
+  "cyclomatic_complexity": 21.0,
+  "max_complexity": 21,
+  "maintainability_index": 39.49,
+  "security_low": 0,
+  "security_medium": 0,
+  "security_high": 0,
+  "R": 100.0,
+  "F": 100.0,
+  "C": 40.0,
+  "M": 39.49,
+  "S": 100.0,
+  "ICC": 75.898,
+  "cases": {
+    "T1-C01": 1,
+    "T1-C02": 1,
+    "T1-C03": 1,
+    "T1-C04": 1,
+    "T1-C05": 1,
+    "T1-C06": 1,
+    "T1-C07": 1,
+    "T1-C08": 1,
+    "T1-C09": 1,
+    "T1-C10": 1
+  },
+  "requirements": {
+    "T1-R1": 1,
+    "T1-R2": 1,
+    "T1-R3": 1,
+    "T1-R4": 1,
+    "T1-R5": 1
+  },
+  "incidents": [
+    {
+      "stage": "encoding",
+      "status": "transcoded_for_measurement",
+      "message": "El archivo original no es UTF-8 valido; se decodifico como cp1252 y se midio sobre una representacion temporal UTF-8. El archivo original NO fue modificado.",
+      "original_path": "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\samples\\opencode\\T1\\T1_opencode_R07.py",
+      "source_encoding": "cp1252",
+      "original_modified": false
+    }
+  ],
+  "syntax": {
+    "path": "C:\\Users\\ALIENW~1\\AppData\\Local\\Temp\\seat_t1_encoding_3ok0f785\\T1_opencode_R07__utf8.py",
+    "status": "valid",
+    "valid": true,
+    "exists": true,
+    "error_type": null,
+    "message": null,
+    "line": null,
+    "column": null
+  },
+  "radon": {
+    "tool": "radon",
+    "status": "ok",
+    "average_complexity": 21.0,
+    "max_complexity": 21,
+    "maintainability_index": 39.49,
+    "command": [
+      "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\.venv\\Scripts\\python.exe",
+      "-m",
+      "radon",
+      "cc",
+      "C:\\Users\\ALIENW~1\\AppData\\Local\\Temp\\seat_t1_encoding_3ok0f785\\T1_opencode_R07__utf8.py",
+      "-j"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"C:\\\\Users\\\\ALIENW~1\\\\AppData\\\\Local\\\\Temp\\\\seat_t1_encoding_3ok0f785\\\\T1_opencode_R07__utf8.py\": [{\"type\": \"function\", \"rank\": \"D\", \"lineno\": 1, \"complexity\": 21, \"name\": \"analizar_mediciones\", \"endline\": 82, \"col_offset\": 0, \"closures\": []}]}\n",
+    "stderr": "",
+    "error": null,
+    "cc": {
+      "tool": "radon",
+      "command": [
+        "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\.venv\\Scripts\\python.exe",
+        "-m",
+        "radon",
+        "cc",
+        "C:\\Users\\ALIENW~1\\AppData\\Local\\Temp\\seat_t1_encoding_3ok0f785\\T1_opencode_R07__utf8.py",
+        "-j"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"C:\\\\Users\\\\ALIENW~1\\\\AppData\\\\Local\\\\Temp\\\\seat_t1_encoding_3ok0f785\\\\T1_opencode_R07__utf8.py\": [{\"type\": \"function\", \"rank\": \"D\", \"lineno\": 1, \"complexity\": 21, \"name\": \"analizar_mediciones\", \"endline\": 82, \"col_offset\": 0, \"closures\": []}]}\n",
+      "stderr": "",
+      "status": "ok",
+      "error": null,
+      "blocks": 1,
+      "average_complexity": 21.0,
+      "max_complexity": 21
+    },
+    "mi": {
+      "tool": "radon",
+      "command": [
+        "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\.venv\\Scripts\\python.exe",
+        "-m",
+        "radon",
+        "mi",
+        "C:\\Users\\ALIENW~1\\AppData\\Local\\Temp\\seat_t1_encoding_3ok0f785\\T1_opencode_R07__utf8.py",
+        "-j"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"C:\\\\Users\\\\ALIENW~1\\\\AppData\\\\Local\\\\Temp\\\\seat_t1_encoding_3ok0f785\\\\T1_opencode_R07__utf8.py\": {\"mi\": 39.48917643952426, \"rank\": \"A\"}}\n",
+      "stderr": "",
+      "status": "ok",
+      "error": null,
+      "maintainability_index": 39.49
+    }
+  },
+  "bandit": {
+    "tool": "bandit",
+    "command": [
+      "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\.venv\\Scripts\\python.exe",
+      "-m",
+      "bandit",
+      "-f",
+      "json",
+      "C:\\Users\\ALIENW~1\\AppData\\Local\\Temp\\seat_t1_encoding_3ok0f785\\T1_opencode_R07__utf8.py"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"errors\": [],\n  \"generated_at\": \"2026-10-03T02:12:12Z\",\n  \"metrics\": {\n    \"C:\\\\Users\\\\ALIENW~1\\\\AppData\\\\Local\\\\Temp\\\\seat_t1_encoding_3ok0f785\\\\T1_opencode_R07__utf8.py\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 70,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    },\n    \"_totals\": {\n      \"CONFIDENCE.HIGH\": 0,\n      \"CONFIDENCE.LOW\": 0,\n      \"CONFIDENCE.MEDIUM\": 0,\n      \"CONFIDENCE.UNDEFINED\": 0,\n      \"SEVERITY.HIGH\": 0,\n      \"SEVERITY.LOW\": 0,\n      \"SEVERITY.MEDIUM\": 0,\n      \"SEVERITY.UNDEFINED\": 0,\n      \"loc\": 70,\n      \"nosec\": 0,\n      \"skipped_tests\": 0\n    }\n  },\n  \"results\": []\n}",
+    "stderr": "[main]\tINFO\tprofile include tests: None\n[main]\tINFO\tprofile exclude tests: None\n[main]\tINFO\tcli include tests: None\n[main]\tINFO\tcli exclude tests: None\n",
+    "status": "clean",
+    "error": null,
+    "security_low": 0,
+    "security_medium": 0,
+    "security_high": 0,
+    "total_issues": 0
+  },
+  "pytest": {
+    "tool": "pytest",
+    "command": [
+      "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\tasks\\T1\\tests\\test_t1.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "stdout": "..........                                                               [100%]\n10 passed in 0.10s\n",
+    "stderr": "",
+    "status": "ok",
+    "error": null,
+    "summary": {
+      "passed": 10,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "xfailed": 0,
+      "xpassed": 0
+    },
+    "cases": {
+      "test_t1_c01_funcionamiento_normal": "pass",
+      "test_t1_c02_agrupacion_varios_sensores": "pass",
+      "test_t1_c03_lista_vacia": "pass",
+      "test_t1_c04_limites_validos": "pass",
+      "test_t1_c05_normalizacion_sensor": "pass",
+      "test_t1_c06_campos_faltantes": "pass",
+      "test_t1_c07_fuera_de_rango": "pass",
+      "test_t1_c08_tipos_invalidos": "pass",
+      "test_t1_c09_inmutabilidad": "pass",
+      "test_t1_c10_tipo_principal_incorrecto": "pass"
+    }
+  },
+  "T1-C01": 1,
+  "T1-C02": 1,
+  "T1-C03": 1,
+  "T1-C04": 1,
+  "T1-C05": 1,
+  "T1-C06": 1,
+  "T1-C07": 1,
+  "T1-C08": 1,
+  "T1-C09": 1,
+  "T1-C10": 1,
+  "T1-R1": 1,
+  "T1-R2": 1,
+  "T1-R3": 1,
+  "T1-R4": 1,
+  "T1-R5": 1,
+  "encoding_incident": true,
+  "original_path": "C:\\Users\\Alienware\\Documents\\proyecto-SEAT\\samples\\opencode\\T1\\T1_opencode_R07.py",
+  "original_modified": false
+}
