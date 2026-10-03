@@ -357,11 +357,6 @@ Si el mecanismo de generación utilizado no permite demostrar independencia estr
 
 ---
 
-## Autor
-
-**AndresRafLopMaz**  
-Ingeniería en Sistemas  
-Correo de configuración Git: `andresrlm.tools@gmail.com`
 
 ---
 
